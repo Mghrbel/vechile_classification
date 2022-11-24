@@ -2,14 +2,14 @@ import torch
 import numpy as np
 from sklearn.metrics import classification_report
 
-from models import vgg
+from models import mobilenet
 from data_loader import get_test_dataloader
 
 num_classes = 8
-model = vgg(num_classes)
+model = mobilenet(num_classes)
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-model.load_state_dict(torch.load('models/vgg.pt', map_location=torch.device('cpu')))
+model.load_state_dict(torch.load('models/mob.pt', map_location=torch.device('cpu')))
 
 test_loader, classes = get_test_dataloader(path='data/test', batch_size=16, IMAGE_SIZE = (300, 300))
 
