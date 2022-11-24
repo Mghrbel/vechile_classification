@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block body %}
+    <form action="/" method="POST" enctype="multipart/form-data">
+        <div class="title">Vechile classification</div>
+        <div class="sub_title">check for vechile type</div>
+        <input id="b1" class="upload" type="file" name="file" accept="image/*">
+        <label class="upload" for="b1">
+            Upload Image
+        </label>
+
+        <button id="b2" class="upload" type="submit" name="submit" style="vertical-align:middle"><span>Classify</span></button>
+    </form>
+{% endblock %}
