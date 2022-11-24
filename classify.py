@@ -5,7 +5,7 @@ import argparse
 
 import torch
 
-from models import resnet
+from models import vgg
 from data_loader import get_test_dataloader
 
 import pickle
@@ -23,8 +23,8 @@ def classify(image_path) :
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-    model = resnet()
-    model.load_state_dict(torch.load('models/resnet.pt', map_location=torch.device('cpu')))
+    model = vgg()
+    model.load_state_dict(torch.load('models/vgg.pt', map_location=torch.device('cpu')))
     model.eval()
 
     for image, _ in loader :

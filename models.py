@@ -1,12 +1,12 @@
 import torch.nn as nn
-from torchvision.models import resnet18
+from torchvision.models import vgg16
 
-def resnet(num_classes=8) :
-    model = resnet18(weights='IMAGENET1K_V1')
+def vgg(num_classes=8) :
+    model = vgg16(weights='IMAGENET1K_V1')
     for param in model.parameters():
         param.requires_grad = False
-    num_features = model.fc.in_features
-    model.fc = nn.Sequential(
+    num_features = model.classifier[0].in_features
+    model.classifier = nn.Sequential(
         nn.Linear(in_features=num_features, out_features=128, bias=True),
         nn.ReLU(inplace=True),
         nn.Dropout(p=0.4, inplace=False),

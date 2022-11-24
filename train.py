@@ -6,7 +6,7 @@ import torch.nn as nn
 from torch.optim import Adamax
 from sklearn.metrics import accuracy_score
 
-from models import resnet
+from models import vgg
 from data_loader import get_train_val_dataloader
 from data_augmenter import create_augmented_data
 
@@ -91,8 +91,8 @@ def train(model, train_loader, criterion, optimizer, val_loader, epochs=25):
         wait += 1
         # Saving best model
         if min_loss >= val_loss:
-            torch.save(model.state_dict(), 'models/resnet.pt')
-            print("val_loss improved from %.4f to %.4f, model saved to models/resnet.pt" % (min_loss, val_loss))
+            torch.save(model.state_dict(), 'models/vgg.pt')
+            print("val_loss improved from %.4f to %.4f, model saved to models/vgg.pt" % (min_loss, val_loss))
             min_loss = val_loss
             wait = 0
 
@@ -119,7 +119,7 @@ if __name__ == "__main__" :
         epochs = 100
         learning_rate = 0.0008
 
-        model = resnet(num_classes)
+        model = vgg(num_classes)
 
         criterion = nn.CrossEntropyLoss()
         optimizer = Adamax(model.parameters(), lr=learning_rate)
