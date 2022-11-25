@@ -17,10 +17,22 @@ truck<br>
 van<br>
 motorcycle<br>
 
+### Examples of project running
+<p align="center">
+<img src="docs/Example1.png" width="50%"/>
+</p>
+<p align="center">
+<img src="docs/Example2.png" width="50%"/>
+</p>
+<p align="center">
+<img src="docs/Example3.png" width="50%"/>
+</p>
+
+                                    
 ### Running the Module with Docker on Windows Machines:
 
 ```
-# docker run -d -p 8080:5000 classify-vechile:latest
+docker run -d -p 8080:5000 classify-vechile:latest
 ```
 
 ### Running the Module without Docker on Windows Machines:
