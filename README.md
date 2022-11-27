@@ -32,7 +32,13 @@ motorcycle<br>
 ### Running the Module with Docker on Windows Machines:
 
 ```
-docker run -d -p 8080:5000 classify-vechile:latest
+docker pull mghrbel/classify-vechile
+docker run -d -p 8080:5000 mghrbel/classify-vechile:latest
+```
+from browser visit :
+
+```
+localhost:8080
 ```
 
 ### Running the Module without Docker on Windows Machines:
